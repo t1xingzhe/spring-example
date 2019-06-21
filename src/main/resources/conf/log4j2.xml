@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" packages="com.sankuai.meituan.waimai.util.log4j2">
+    <Appenders>
+        <Console name="consoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{DEFAULT} [%t] %-5p (%C{1}:%L) - %m%n" charset="UTF-8"/>
+        </Console>
+
+        <RollingRandomAccessFile name="logfileAppender" fileName="logs/${sys:app.key}.log"
+          immediateFlush="false"
+          filePattern="logs/${sys:app.key}.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{DEFAULT} %t %-5p (%C{1}:%L) - %m%n" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <!--<SizeBasedTriggeringPolicy size="100 MB"/>-->
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Root Logger -->
+        <AsyncRoot level="info" includeLocation="true" additivity="false">
+            <AppenderRef ref="logfileAppender"/>
+            <AppenderRef ref="consoleAppender"/>
+        </AsyncRoot>
+
+    </Loggers>
+
+</Configuration>

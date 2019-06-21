@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: com.xing.example
+  datasource:
+    username: root
+    password: xingzhe4245
+    url: jdbc:mysql://127.0.0.1:3306/spring-example?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 60888
+
+logging:
+  config: classpath:conf/log4j2.xml
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location:  classpath:/mybatis/config/mybatis-config.xml
