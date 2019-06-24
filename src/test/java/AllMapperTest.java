@@ -18,7 +18,7 @@ import java.util.List;
  */
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:/magnet-server.xml"})
+@ContextConfiguration(locations = {"classpath*:/example-server.xml"})
 @MapperScan("com.xing.example.repository")
 public class AllMapperTest {
 

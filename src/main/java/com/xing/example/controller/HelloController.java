@@ -1,5 +1,6 @@
 package com.xing.example.controller;
 
+import com.xing.example.result.QuestionResult;
 import com.xing.example.service.ConsumerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,10 @@ public class HelloController {
 
     @GetMapping("/question/{id}")
     public Object question(@PathVariable(value = "id") long id) {
-        return consumerService.getQuestionList(id);
+        logger.info("HelloController.question id:{}",id);
+        QuestionResult questionResult = consumerService.getQuestionList(id);
+        logger.info("HelloController.question result:{}",questionResult);
+        return questionResult;
     }
 
     @GetMapping("/answer/{id}")

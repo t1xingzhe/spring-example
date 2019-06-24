@@ -35,10 +35,20 @@ public class ConsumerService {
         if (question != null) {
             Author author = allMapper.selectAuthor(question.getA_id());
             List<Answer> answers = allMapper.selectByQid(question.getId());
-            questionResult.setAnswers(answers);
             questionResult.setAuthor(author);
             questionResult.setQuestion(question);
-
+            List<AnswerResult> answerResults = new ArrayList<>();
+            if(!CollectionUtils.isEmpty(answers)) {
+                for (Answer answer:answers) {
+                    //todo 循环调用，不可取，改成批量获取
+                    Author authorTmp = allMapper.selectAuthor(answer.getA_id());
+                    AnswerResult answerResult = new AnswerResult();
+                    answerResult.setAuthor(authorTmp);
+                    answerResult.setAnswer(answer);
+                    answerResults.add(answerResult);
+                }
+            }
+            questionResult.setAnswers(answerResults);
         }
         return questionResult;
     }

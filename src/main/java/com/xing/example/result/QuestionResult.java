@@ -1,6 +1,5 @@
 package com.xing.example.result;
 
-import com.xing.example.entity.Answer;
 import com.xing.example.entity.Author;
 import com.xing.example.entity.Question;
 import lombok.Getter;
@@ -20,5 +19,5 @@ import java.util.List;
 public class QuestionResult {
     private Question question;
     private Author author;
-    private List<Answer> answers = Collections.emptyList();
+    private List<AnswerResult> answers = Collections.emptyList();
 }
